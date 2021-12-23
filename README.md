@@ -7,7 +7,7 @@
 
 畫面分成四個區塊 分別是 **Game of life**, **細胞創造**,**現在數據** 和 **使用說明**
 
-[!image](./image/example.png)
+![image](./image/example.png)
 
 ##### Game of life
 
