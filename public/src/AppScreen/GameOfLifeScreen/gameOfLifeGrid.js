@@ -142,7 +142,7 @@ class GameOfLifeGrid{
                 if(state == 1 && (neighbors < 2||neighbors > 3)){
                     this.next[i][j].OnSpawn(0,this.deadCellColor);
                 }
-                else if(state == 0 && neighbors == 3){//TODO: born with different color base on neighbors
+                else if(state == 0 && neighbors == 3){
                     this.next[i][j].OnSpawn(1,this.newColor);
                 }else{
                     this.next[i][j].OnSpawn(state,

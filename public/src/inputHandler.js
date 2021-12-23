@@ -1,6 +1,6 @@
 class InputHandler {
-    constructor(gameScreen) {
-      this.gameScreen = gameScreen;
+    constructor(appScreen) {
+      this.appScreen = appScreen;
       
       this.m_keyMap = new Map();
       this.m_keyPreMap = new Map();
@@ -72,24 +72,24 @@ class InputHandler {
   }
 
   onMouseUp(pos) {
-    let screen = this.gameScreen.screenMenu.InWhichScreen(pos);
+    let screen = this.appScreen.screenMenu.InWhichScreen(pos);
     if(screen == "Create cell"){
-      this.gameScreen.screenMenu.FindScreen(screen).OnGridClick(this.gameScreen.screenMenu.ParseMouseCoords(pos),this.gameScreen.color);
+      this.appScreen.screenMenu.FindScreen(screen).OnGridClick(this.appScreen.screenMenu.ParseMouseCoords(pos),this.appScreen.color);
     }else if(screen == "Game of life"){
-      onSendMessage('Click',{pos:pos,grid:this.gameScreen.screenMenu.FindScreen("Create cell").grid});
+      onSendMessage('Click',{pos:pos,grid:this.appScreen.screenMenu.FindScreen("Create cell").grid});
     }
   }
   
   onMouseMove(pos) {
-    let screen = this.gameScreen.screenMenu.InWhichScreen(pos);
-    this.gameScreen.screenMenu.FindScreen("Analysis").mouseInfo(screen,this.gameScreen.screenMenu.ParseMouseCoords(pos));
-    this.throttle(onSendMessage,['Cursor move',{pos:pos,color:this.gameScreen.color}],100)(this._throttle);
+    let screen = this.appScreen.screenMenu.InWhichScreen(pos);
+    this.appScreen.screenMenu.FindScreen("Analysis").mouseInfo(screen,this.appScreen.screenMenu.ParseMouseCoords(pos));
+    this.throttle(onSendMessage,['Cursor move',{pos:pos,color:this.appScreen.color}],100)(this._throttle);
   }
   
   onResize() {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
-    this.gameScreen.Resize();
+    this.appScreen.Resize();
   }
   
   // limit the number of events per second

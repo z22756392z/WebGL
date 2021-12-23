@@ -1,5 +1,5 @@
 var menu;
-class GameScreen{
+class AppScreen{
     constructor(){
         // initialize the timer and start the animation
         this.timer = {
@@ -26,8 +26,6 @@ class GameScreen{
         this.screenMenuXLength = 2;
         this.screenMenu = new ScreenMenu(this.inputHandler,this.screenMenuXLength);
         menu = this.screenMenu;
-        //menu = new TestMenu("3D Texture",Test3dTexture);
-        //this.menu = new TestMenu("Clear Color",TestCell,gl);
     }
 
     Start(resource){
@@ -57,9 +55,8 @@ class GameScreen{
                 
 
                 this.inputHandler.OnUpdate();
-                //this.menu.currentTest.OnUpdate(this.inputHandler);
-                //this.menu.currentTest.OnRender();
             
+                
                 this.screenMenu.OnUpdate();
                 this.screenMenu.OnRender();
             }
