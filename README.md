@@ -178,7 +178,9 @@
 
     使用上面同樣的函式makegrid創造細胞們 並parse滑鼠位置到clip space選取現在點選的網格
 
-* Ana
+* Analysis & Manul: Font Render
+   
+    將BMFont提供的fnf檔轉json 並用其資料找到相對在png上字的位置並render
 
 
 
