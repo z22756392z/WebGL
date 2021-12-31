@@ -51,7 +51,41 @@
           gl.viewport(this.xPos,this.yPos,this.width,this.height);
       }
   ```
+* Game Of Life 實作
+  ```
+  //細胞
+  class Cell{
+    constructor(xPos,yPos,cellColor,state){
+        this.data = [];
+        this.data[0] = xPos;
+        this.data[1] = yPos;
+        this.OnSpawn(state,cellColor);
+    }
 
+    OnSpawn(state,cellColor){
+        this.data[2] = cellColor[0];
+        this.data[3] = cellColor[1];
+        this.data[4] = cellColor[2];
+        this.data[5] = cellColor[3];
+        this.m_State = state;
+    }
+  }
+ ```javascript
+  ```
+  //創造存放細胞的二維正列
+  function makeGrid(col,row,resolution,deadColor){
+    let  arr = new Array(col);
+    for(let i = 0 ; i <col ;i ++){
+        arr[i] = new Array(row);
+    }
+    for(let i = 0 ; i < col ; i++){
+        for(let j = 0 ; j < row; j++){
+            arr[i][j] = new Cell(i * resolution, j * resolution,deadColor,0);
+        }
+    }
+    return arr;
+}
+```javascript
   
 
 ## 參考資料
