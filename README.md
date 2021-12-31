@@ -133,10 +133,43 @@
           return aliveCount;
    }
   ```
-* 資料傳輸
+* - 資料傳輸
 
- &nbsp; 細胞傳輸:
   ```
+  onMouseUp(pos) {
+  	//找滑鼠點擊的現在螢幕
+      let screen = this.appScreen.screenMenu.InWhichScreen(pos);
+      if(screen == "Create cell"){//找點擊到的網格
+        this.appScreen.screenMenu.FindScreen(screen).OnGridClick(this.appScreen.screenMenu.ParseMouseCoords(pos),this.appScreen.color);
+      }else if(screen == "Game of life"){//傳輸在細胞創造裡的網格給伺服器 伺服器在給各個客戶
+        onSendMessage('Click',{pos:pos,grid:this.appScreen.screenMenu.FindScreen("Create cell").grid});
+      }
+    }
+    
+  onMouseMove(pos) {
+      let screen = this.appScreen.screenMenu.InWhichScreen(pos);
+      this.appScreen.screenMenu.FindScreen("Analysis").mouseInfo(screen,this.appScreen.screenMenu.ParseMouseCoords(pos));
+      //傳輸滑鼠位置到伺服器 伺服器在給各個客戶 畫出滑鼠
+      this.throttle(onSendMessage,['Cursor move',{pos:pos,color:this.appScreen.color}],100)(this._throttle);
+    }
+    
+  onSendMessage = function(t,option) {
+      socket.send(JSON.stringify({
+        type:t,
+        option: option
+      }))
+    }
+   //接收到的資料
+   socket.onmessage = function(event){
+      var data = JSON.parse(event.data);
+      
+      if(data.type == "speak"){
+        console.log(data.option);
+        return;
+      } 
+     
+      app.receiveMessage(data);
+    }
   ```
 
 * Cell Create 實作
