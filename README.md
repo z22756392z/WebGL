@@ -21,6 +21,8 @@
 
 * 使用工具:[oak@v10.1.0 | Deno](https://deno.land/x/oak@v10.1.0) 和 [websocket@v0.1.3 | Deno](https://deno.land/x/websocket@v0.1.3) , [glMatrix](https://glmatrix.net/)
 
+* 使用軟體[BMFont](http://www.angelcode.com/products/bmfont/) 使用其中的 **Jokeman_Bitmap**
+
 * 用canvas 內容中的webgl2 呈現畫面 
 
 * 用glviewport把四個畫面逐一投影在不同位置和大小 
@@ -174,7 +176,9 @@
 
 * Cell Create 實作
 
-    使用上面同樣的函式創造細胞們 並parse滑鼠位置到clip space選取現在點選的網格
+    使用上面同樣的函式makegrid創造細胞們 並parse滑鼠位置到clip space選取現在點選的網格
+
+* Ana
 
 
 
