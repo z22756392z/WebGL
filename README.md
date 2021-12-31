@@ -53,7 +53,7 @@
   ```
 * Game Of Life 實作
 
-  ```
+  ```javascript
   //細胞
   class Cell{
     constructor(xPos,yPos,cellColor,state){
@@ -71,9 +71,8 @@
         this.m_State = state;
     }
   }
- ```javascript
- 
  ```
+ ```javascript
   //創造存放細胞的二維正列
   function makeGrid(col,row,resolution,deadColor){
     let  arr = new Array(col);
@@ -87,7 +86,7 @@
     }
     return arr;
 }
-```javascript
+```
   
 
 ## 參考資料
