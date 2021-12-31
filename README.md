@@ -35,7 +35,7 @@
   
   
       for(let i = 0 ; i < this.m_Screens.length ; i++){
-  	   //call each screen onRender function
+  	    //call each screen onRender function
         this.m_Screens[i].screen.OnRender();
   
       }
@@ -46,7 +46,7 @@
   ```javascript
   // each screen
   OnRender(){
-      	//each screen is render on different pos
+      	  //each screen is render on different pos
           gl.viewport(this.xPos,this.yPos,this.width,this.height);
       }
   ```
