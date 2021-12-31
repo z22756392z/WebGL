@@ -56,4 +56,4 @@
 
 ## 參考資料
 
-[fps]([javascript - Controlling fps with requestAnimationFrame? - Stack Overflow](https://stackoverflow.com/questions/19764018/controlling-fps-with-requestanimationframe))
+[fps](https://stackoverflow.com/questions/19764018/controlling-fps-with-requestanimationframe)
