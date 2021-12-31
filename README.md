@@ -1,4 +1,3 @@
-
 ## 網頁說明
 
 [Game of Life](https://zh.wikipedia.org/wiki/康威生命游戏)的網頁版
@@ -29,17 +28,17 @@
   ```javascript
   OnRender(){
   
-  ​    gl.clearColor(0.2,0.2,0.2,1.0);
+      gl.clearColor(0.2,0.2,0.2,1.0);
   
-  ​    gl.clear(gl.COLOR_BUFFER_BIT|gl.DEPTH_BUFFER_BIT);
+      gl.clear(gl.COLOR_BUFFER_BIT|gl.DEPTH_BUFFER_BIT);
   
   
   
-  ​    for(let i = 0 ; i < this.m_Screens.length ; i++){
+      for(let i = 0 ; i < this.m_Screens.length ; i++){
   	   //call each screen onRender function
-  ​      this.m_Screens[i].screen.OnRender();
+        this.m_Screens[i].screen.OnRender();
   
-  ​    }
+      }
   
     }
   ```
@@ -51,6 +50,7 @@
           gl.viewport(this.xPos,this.yPos,this.width,this.height);
       }
   ```
+
 * Game Of Life 實作
 
   ```javascript
@@ -62,7 +62,7 @@
         this.data[1] = yPos;
         this.OnSpawn(state,cellColor);
     }
-
+  
     OnSpawn(state,cellColor){
         this.data[2] = cellColor[0];
         this.data[3] = cellColor[1];
@@ -71,23 +71,69 @@
         this.m_State = state;
     }
   }
- ```
- ```
-  //創造存放細胞的二維正列
-  function makeGrid(col,row,resolution,deadColor){
-    let  arr = new Array(col);
-    for(let i = 0 ; i <col ;i ++){
-        arr[i] = new Array(row);
-    }
-    for(let i = 0 ; i < col ; i++){
-        for(let j = 0 ; j < row; j++){
-            arr[i][j] = new Cell(i * resolution, j * resolution,deadColor,0);
-        }
-    }
-    return arr;
-}
-```
   
+   //創造存放細胞的二維正列
+    function makeGrid(col,row,resolution,deadColor){
+      let  arr = new Array(col);
+      for(let i = 0 ; i <col ;i ++){
+          arr[i] = new Array(row);
+      }
+      for(let i = 0 ; i < col ; i++){
+          for(let j = 0 ; j < row; j++){
+              arr[i][j] = new Cell(i * resolution, j * resolution,deadColor,0);
+          }
+      }
+      return arr;
+  }
+  
+  //update every frame
+  gridUpdate(){
+          //don't want to change state base on each iteration
+          FillBlank(this.next,this.col,this.row,this.deadCellColor);
+  
+          for(let i = 0 ;  i < this.col; i ++){
+              for(let j = 0 ; j < this.row ; j++){
+                  let neighbors = this.CountNeighbors(i,j);
+                  //rule
+                  let state = this.grid[i][j].m_State;
+                  if(state == 1 && (neighbors < 2||neighbors > 3)){
+                      this.next[i][j].OnSpawn(0,this.deadCellColor);
+                  }
+                  else if(state == 0 && neighbors == 3){
+                      this.next[i][j].OnSpawn(1,this.newColor);
+                  }else{
+                      this.next[i][j].OnSpawn(state,
+                          [this.grid[i][j].data[2],this.grid[i][j].data[3],this.grid[i][j].data[4],this.grid[i][j].data[5]]);
+                  }
+              }
+          }
+          //swap
+          var swap = function (x){return x};
+          this.grid = swap(this.next, this.next=this.grid);
+      }
+      CountNeighbors(i,j){
+          this.newColor = [0,0,0,0];
+          let aliveCount = 0;
+          let col = 0;
+          let row = 0;
+          for(let k = -1  ; k < 2 ; k++){
+              for(let z = -1  ; z < 2 ; z++){
+                  col = (i + k + this.col) % this.col;
+                  row = (j + z + this.row) % this.row;
+                  if(this.grid[col][row].m_State == 1){
+                      aliveCount++
+                      this.MergeColor(3,[this.grid[col][row].data[2],this.grid[col][row].data[3],this.grid[col][row].data[4],this.grid[col][row].data[5]]);
+                  };                       
+              }
+          }//don't count itself
+          aliveCount -= this.grid[i][j].m_State;
+          return aliveCount;
+      }
+  ```
+
+
+
+
 
 ## 參考資料
 
