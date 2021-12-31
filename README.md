@@ -96,11 +96,14 @@
                   let neighbors = this.CountNeighbors(i,j);
                   //rule
                   let state = this.grid[i][j].m_State;
+                  // if this cell is alive and nearby cell is either less than two or more than three. die
                   if(state == 1 && (neighbors < 2||neighbors > 3)){
                       this.next[i][j].OnSpawn(0,this.deadCellColor);
                   }
+                  // if this cell is deaad and nearby cell equal three. live
                   else if(state == 0 && neighbors == 3){
                       this.next[i][j].OnSpawn(1,this.newColor);
+                  //else unchange
                   }else{
                       this.next[i][j].OnSpawn(state,
                           [this.grid[i][j].data[2],this.grid[i][j].data[3],this.grid[i][j].data[4],this.grid[i][j].data[5]]);
