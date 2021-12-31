@@ -52,6 +52,7 @@
       }
   ```
 * Game Of Life 實作
+
   ```
   //細胞
   class Cell{
@@ -71,7 +72,8 @@
     }
   }
  ```javascript
-  ```
+ 
+ ```
   //創造存放細胞的二維正列
   function makeGrid(col,row,resolution,deadColor){
     let  arr = new Array(col);
