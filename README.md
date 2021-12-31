@@ -72,8 +72,8 @@
     }
   }
   
-   //創造存放細胞的二維正列
-    function makeGrid(col,row,resolution,deadColor){
+  //創造存放細胞的二維正列
+  function makeGrid(col,row,resolution,deadColor){
       let  arr = new Array(col);
       for(let i = 0 ; i <col ;i ++){
           arr[i] = new Array(row);
@@ -84,10 +84,10 @@
           }
       }
       return arr;
-  }
+   }
   
-  //update every frame
-  gridUpdate(){
+   //update every frame
+   gridUpdate(){
           //don't want to change state base on each iteration
           FillBlank(this.next,this.col,this.row,this.deadCellColor);
   
@@ -106,12 +106,12 @@
                           [this.grid[i][j].data[2],this.grid[i][j].data[3],this.grid[i][j].data[4],this.grid[i][j].data[5]]);
                   }
               }
-          }
+        }
           //swap
           var swap = function (x){return x};
           this.grid = swap(this.next, this.next=this.grid);
-      }
-      CountNeighbors(i,j){
+   }
+   CountNeighbors(i,j){
           this.newColor = [0,0,0,0];
           let aliveCount = 0;
           let col = 0;
@@ -128,7 +128,7 @@
           }//don't count itself
           aliveCount -= this.grid[i][j].m_State;
           return aliveCount;
-      }
+   }
   ```
 
 
