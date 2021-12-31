@@ -137,7 +137,7 @@
   ```
 * - 資料傳輸
 
-  ```
+  ```javascript
   onMouseUp(pos) {
   	//找滑鼠點擊的現在螢幕
       let screen = this.appScreen.screenMenu.InWhichScreen(pos);
