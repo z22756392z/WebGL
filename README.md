@@ -133,7 +133,13 @@
           return aliveCount;
    }
   ```
+* 資料傳輸
+    細胞傳輸:
+  ```
+  ```
 
+* Cell Create 實作
+    使用上面同樣的函式創造細胞們 並parse滑鼠位置到clip space選取現在點選的網格
 
 
 
