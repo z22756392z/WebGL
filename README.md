@@ -180,7 +180,7 @@
 
 * Analysis & Manul: Font Render
    
-    將BMFont提供的fnf檔轉json 並用其資料找到相對在png上字的位置並render
+    將BMFont提供的fnf檔轉json 並用其資料找到相對在png上字的位置並render 但因為是使用png的關係會因為放大而模糊
 
 
 
