@@ -188,3 +188,4 @@
 ## 參考資料
 
 [fps](https://stackoverflow.com/questions/19764018/controlling-fps-with-requestanimationframe)
+其餘手工打造
