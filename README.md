@@ -6,7 +6,7 @@
 
 [fps](https://stackoverflow.com/questions/19764018/controlling-fps-with-requestanimationframe) 20%原創
 
-[Game of life](https://www.youtube.com/watch?v=FWSR_7kZuYg&t=1633s) 0%原創
+[Game of life](https://www.youtube.com/watch?v=FWSR_7kZuYg&t=1633s) 60%原創
 
 [glviewport](http://learnwebgl.brown37.net/08_projections/projections_viewport.html)
 
