@@ -6,6 +6,8 @@
 
 [fps](https://stackoverflow.com/questions/19764018/controlling-fps-with-requestanimationframe) 20%原創
 
+[OpenGL Doc](https://docs.gl/)
+
 ## 特色
 
 畫面分成四個區塊 分別是 **Game of life**, **細胞創造**,**現在數據** 和 **使用說明**
