@@ -2,6 +2,10 @@
 
 [Game of Life](https://zh.wikipedia.org/wiki/康威生命游戏)的網頁版
 
+## 參考資料
+
+[fps](https://stackoverflow.com/questions/19764018/controlling-fps-with-requestanimationframe)
+
 ### 特色
 
 畫面分成四個區塊 分別是 **Game of life**, **細胞創造**,**現在數據** 和 **使用說明**
@@ -182,12 +186,3 @@
 * Analysis & Manul: Font Render
    
     將BMFont提供的fnf檔轉json 並用其資料找到相對在png上字的位置並render 但因為是使用png的關係會因為放大而模糊
-
-
-
-
-## 參考資料
-
-[fps](https://stackoverflow.com/questions/19764018/controlling-fps-with-requestanimationframe)
-
-其餘手工打造
