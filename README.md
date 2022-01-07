@@ -14,6 +14,12 @@
 
 [OpenGL Doc](https://docs.gl/)
 
+##使用工具
+
+* 使用工具:[oak@v10.1.0 | Deno](https://deno.land/x/oak@v10.1.0) 和 [websocket@v0.1.3 | Deno](https://deno.land/x/websocket@v0.1.3) , [glMatrix](https://glmatrix.net/)
+
+* 使用軟體[BMFont](http://www.angelcode.com/products/bmfont/) 使用其中的 **Jokeman_Bitmap**
+* 
 ## 特色
 
 畫面分成四個區塊 分別是 **Game of life**, **細胞創造**,**現在數據** 和 **使用說明**
@@ -31,10 +37,6 @@
 * 點擊區塊內的方格 自訂要創造的細胞
 
 ## 技術手段
-
-* 使用工具:[oak@v10.1.0 | Deno](https://deno.land/x/oak@v10.1.0) 和 [websocket@v0.1.3 | Deno](https://deno.land/x/websocket@v0.1.3) , [glMatrix](https://glmatrix.net/)
-
-* 使用軟體[BMFont](http://www.angelcode.com/products/bmfont/) 使用其中的 **Jokeman_Bitmap**
 
 * 用canvas 內容中的webgl2 呈現畫面 
 
